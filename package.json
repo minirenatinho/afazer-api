@@ -1,0 +1,30 @@
+{
+  "name": "afazer-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renatodeyvson/afazer-api.git"
+  },
+  "keywords": [
+    "todo",
+    "list"
+  ],
+  "author": "renatodeyvson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/renatodeyvson/afazer-api/issues"
+  },
+  "homepage": "https://github.com/renatodeyvson/afazer-api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.12",
+    "mongoose-paginate": "^5.0.3"
+  }
+}
