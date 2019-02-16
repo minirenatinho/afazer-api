@@ -4,7 +4,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 //DB config
-mongoose.connect('mongodb://localhost:27017/afazer', { useNewUrlParser: true });
+mongoose.connect('mongodb://afazeradmin:afazeradmin0@ds251598.mlab.com:51598/afazer', { useNewUrlParser: true });
 require('./src/models/Item');
 
 //Server config
