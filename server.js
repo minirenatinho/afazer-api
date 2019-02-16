@@ -12,4 +12,5 @@ app.use(express.json());
 app.use(cors());
 app.use('/api', require('./src/routes'));
 
-app.listen(3000, () => console.log('on'));
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log('on'));
