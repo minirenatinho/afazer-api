@@ -3,8 +3,13 @@ const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
 
+let mongodbAddress = 'mongodb://afazeradmin:afazeradmin0@ds251598.mlab.com:51598/afazer';
+
+const isDev = process.argv.includes('dev');
+if(isDev) mongodbAddress = 'mongodb://localhost:27017/afazer';
+
 //DB config
-mongoose.connect('mongodb://afazeradmin:afazeradmin0@ds251598.mlab.com:51598/afazer', { useNewUrlParser: true });
+mongoose.connect(mongodbAddress, { useNewUrlParser: true });
 require('./src/models/Item');
 
 //Server config
@@ -13,4 +18,4 @@ app.use(cors());
 app.use('/api', require('./src/routes'));
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log('on'));
+app.listen(port, () => console.log('dev: '+isDev));
