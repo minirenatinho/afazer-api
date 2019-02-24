@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2019-02-24T01:13:59.851Z",
+	"__export_date": "2019-02-24T02:58:46.671Z",
 	"__export_source": "insomnia.desktop.app:v6.3.2",
 	"resources": [
 		{
@@ -64,7 +64,7 @@
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"username\": \"renatinho\",\n\t\"password\": \"12345678\"\n}"
+				"text": ""
 			},
 			"created": 1550258109752,
 			"description": "",
@@ -73,12 +73,22 @@
 					"id": "pair_2d71ee53239f46bba6e0fcaf161d54ef",
 					"name": "Content-Type",
 					"value": "application/json"
+				},
+				{
+					"id": "pair_90b4f4fad35c4e57b670d2df2903420a",
+					"name": "username",
+					"value": "renatinho"
+				},
+				{
+					"id": "pair_b5f34ec61ba3445cb1239fa9d25aa178",
+					"name": "password",
+					"value": "12345678"
 				}
 			],
 			"isPrivate": false,
 			"metaSortKey": -1550258109752,
 			"method": "GET",
-			"modified": 1550969853954,
+			"modified": 1550975575811,
 			"name": "Items Pagination",
 			"parameters": [],
 			"parentId": "fld_810f3075ca7e4f4d85a7bb7826e04fb9",
@@ -96,7 +106,7 @@
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"title\": \"Teste\",\n\t\"username\": \"renatinho\",\n\t\"password\": \"12345678\"\n}"
+				"text": "{\n\t\"title\": \"Teste\"\n}"
 			},
 			"created": 1550261015163,
 			"description": "",
@@ -105,12 +115,22 @@
 					"id": "pair_585fa30fbed4451db053d020c5b8eaa2",
 					"name": "Content-Type",
 					"value": "application/json"
+				},
+				{
+					"id": "pair_7a8f3a31367f4496b97c7b61f5e99bfb",
+					"name": "username",
+					"value": "renatinho"
+				},
+				{
+					"id": "pair_bed46f80993f4f7b96ab831d632b5c5e",
+					"name": "password",
+					"value": "12345678"
 				}
 			],
 			"isPrivate": false,
 			"metaSortKey": -1550258109652,
 			"method": "POST",
-			"modified": 1550970502791,
+			"modified": 1550976284325,
 			"name": "Add Item",
 			"parameters": [],
 			"parentId": "fld_810f3075ca7e4f4d85a7bb7826e04fb9",
@@ -128,7 +148,7 @@
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"username\": \"renatinho\",\n\t\"password\": \"12345678\"\n}"
+				"text": ""
 			},
 			"created": 1550264484133,
 			"description": "",
@@ -137,12 +157,22 @@
 					"id": "pair_49fe800061b34a7695ca61f01eedbe5e",
 					"name": "Content-Type",
 					"value": "application/json"
+				},
+				{
+					"id": "pair_f33cb8f121ea4a9981c75a8d8e3fbb05",
+					"name": "username",
+					"value": "renatinho"
+				},
+				{
+					"id": "pair_3f73e6daa55c4a509643ba57d53f4bb8",
+					"name": "password",
+					"value": "12345678"
 				}
 			],
 			"isPrivate": false,
-			"metaSortKey": -1550258109702,
+			"metaSortKey": -1550258109727,
 			"method": "GET",
-			"modified": 1550970466832,
+			"modified": 1550977029831,
 			"name": "Get Item by Id",
 			"parameters": [],
 			"parentId": "fld_810f3075ca7e4f4d85a7bb7826e04fb9",
@@ -152,7 +182,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ base_url  }}/items/5c71eb2d5d4c6f574f8b2cef",
+			"url": "{{ base_url  }}/items/5c71eef18557865eb880201a",
 			"_type": "request"
 		},
 		{
@@ -160,7 +190,7 @@
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"title\": \"Não comer frutas\",\n\t\"username\": \"renatinho\",\n\t\"password\": \"12345678\"\n}"
+				"text": "{\n\t\"title\": \"Não comer frutas\"\n}"
 			},
 			"created": 1550264745244,
 			"description": "",
@@ -169,12 +199,22 @@
 					"id": "pair_585fa30fbed4451db053d020c5b8eaa2",
 					"name": "Content-Type",
 					"value": "application/json"
+				},
+				{
+					"id": "pair_ef0859f1eb9944e4b9bbde28972ca7d0",
+					"name": "username",
+					"value": "renatinho"
+				},
+				{
+					"id": "pair_3423542ff3994fb082689574dc1422cb",
+					"name": "password",
+					"value": "12345678"
 				}
 			],
 			"isPrivate": false,
 			"metaSortKey": -1550258109602,
 			"method": "PUT",
-			"modified": 1550970539250,
+			"modified": 1550975869031,
 			"name": "Update Item",
 			"parameters": [],
 			"parentId": "fld_810f3075ca7e4f4d85a7bb7826e04fb9",
@@ -184,7 +224,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ base_url  }}/items/5c71eb2d5d4c6f574f8b2cef",
+			"url": "{{ base_url  }}/items/5c71eef18557865eb880201a",
 			"_type": "request"
 		},
 		{
@@ -192,7 +232,7 @@
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"username\": \"renatinho\",\n\t\"password\": \"12345678\"\n}"
+				"text": ""
 			},
 			"created": 1550265121015,
 			"description": "",
@@ -201,12 +241,22 @@
 					"id": "pair_58f0ede00a454cd7839f1ad5e6acdcbf",
 					"name": "Content-Type",
 					"value": "application/json"
+				},
+				{
+					"id": "pair_fc2e5af1d71c458b820c18ff48b020ce",
+					"name": "username",
+					"value": "renatinho"
+				},
+				{
+					"id": "pair_b7c7c9e0880c4096b3e0ad69010ac869",
+					"name": "password",
+					"value": "12345678"
 				}
 			],
 			"isPrivate": false,
 			"metaSortKey": -1550258109552,
 			"method": "DELETE",
-			"modified": 1550970606110,
+			"modified": 1550975921969,
 			"name": "Delete Item",
 			"parameters": [],
 			"parentId": "fld_810f3075ca7e4f4d85a7bb7826e04fb9",
@@ -216,7 +266,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ base_url  }}/items/5c71eb2d5d4c6f574f8b2cef",
+			"url": "{{ base_url  }}/items/5c72031ac8b2b5730b55e1d1",
 			"_type": "request"
 		},
 		{
@@ -302,7 +352,7 @@
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"password\": \"12345678\",\n\t\"currentPassword\": \"123456\"\n}"
+				"text": "{\n\t\"password\": \"12345678\"\n}"
 			},
 			"created": 1550967359511,
 			"description": "",
@@ -311,12 +361,22 @@
 					"id": "pair_585fa30fbed4451db053d020c5b8eaa2",
 					"name": "Content-Type",
 					"value": "application/json"
+				},
+				{
+					"id": "pair_03336b931ec14cecb14e7aea8d6fa486",
+					"name": "username",
+					"value": "renatinho"
+				},
+				{
+					"id": "pair_2fa5d44114044b75895840e44ab4ef70",
+					"name": "password",
+					"value": "12345678"
 				}
 			],
 			"isPrivate": false,
 			"metaSortKey": -1550258109402,
 			"method": "PUT",
-			"modified": 1550968072562,
+			"modified": 1550976939989,
 			"name": "Update User",
 			"parameters": [],
 			"parentId": "fld_661f3d9fdcec4a1fa985b695a96f928c",
@@ -326,7 +386,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ base_url  }}/users/5c71e2252646b058337d895f",
+			"url": "{{ base_url  }}/users",
 			"_type": "request"
 		},
 		{
@@ -334,7 +394,7 @@
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"currentPassword\": \"teste\"\n}"
+				"text": ""
 			},
 			"created": 1550967409915,
 			"description": "",
@@ -343,12 +403,22 @@
 					"id": "pair_8d4c5a89092840abbb2aeb4a190b29d7",
 					"name": "Content-Type",
 					"value": "application/json"
+				},
+				{
+					"id": "pair_a01f23433dc9400e92d4045e8eab6249",
+					"name": "username",
+					"value": "teste"
+				},
+				{
+					"id": "pair_1944b115fd784ebf8a3403f6311947d3",
+					"name": "password",
+					"value": "teste"
 				}
 			],
 			"isPrivate": false,
 			"metaSortKey": -1550258109352,
 			"method": "DELETE",
-			"modified": 1550968258186,
+			"modified": 1550976796216,
 			"name": "Delete User",
 			"parameters": [],
 			"parentId": "fld_661f3d9fdcec4a1fa985b695a96f928c",
@@ -358,7 +428,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ base_url  }}/users/5c71e5b96e320859fd98ca2d",
+			"url": "{{ base_url  }}/users",
 			"_type": "request"
 		},
 		{

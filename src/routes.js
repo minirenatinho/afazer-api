@@ -15,7 +15,7 @@ routes.get('/users', userController.index);
 routes.get('/users/id/:id', userController.get);
 routes.get('/users/:username', userController.getByUsername);
 routes.post('/users', userController.add);
-routes.put('/users/:id', userController.upd);
-routes.delete('/users/:id', userController.del);
+routes.put('/users', userController.upd);
+routes.delete('/users', userController.del);
 
 module.exports = routes;

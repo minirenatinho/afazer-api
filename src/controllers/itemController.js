@@ -4,7 +4,7 @@ const User = mongoose.model('User');
 
 module.exports = {
     async index(req, res){
-        const { username, password } = req.body;
+        const { username, password } = req.headers;
         const user = await User.findOne({ username });
 
         if(user && password === user.password){
@@ -19,7 +19,7 @@ module.exports = {
     },
 
     async get(req, res){
-        const { username, password } = req.body;
+        const { username, password } = req.headers;
         const user = await User.findOne({ username });
 
         if(user && password === user.password){
@@ -33,8 +33,11 @@ module.exports = {
     },
 
     async add(req, res){
-        const { username, password } = req.body;
+        const { username, password } = req.headers;
         const user = await User.findOne({ username });
+
+        //add username from header
+        req.body.username = username;
 
         if(user && password === user.password){
             const item = await Item.create(req.body);
@@ -47,7 +50,7 @@ module.exports = {
     },
 
     async upd(req, res){
-        const { username, password } = req.body;
+        const { username, password } = req.headers;
         const user = await User.findOne({ username });
 
         if(user && password === user.password){
@@ -61,7 +64,7 @@ module.exports = {
     },
 
     async del(req, res){
-        const { username, password } = req.body;
+        const { username, password } = req.headers;
         const user = await User.findOne({ username });
 
         if(user && password === user.password){
