@@ -26,6 +26,18 @@ module.exports = {
         return res.json(user);
     },
 
+    async check(req, res){
+        const { username, password } = req.headers;
+        const user = await User.findOne({ username });
+
+        if(user && user.password === password){
+            return res.json({ authorized: true });
+        }
+        else {
+            return res.json({ authorized: false });
+        }
+    },
+
     async add(req, res){
         try{
             const user = await User.create(req.body);

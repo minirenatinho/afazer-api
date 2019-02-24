@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2019-02-24T02:58:46.671Z",
+	"__export_date": "2019-02-24T03:35:26.090Z",
 	"__export_source": "insomnia.desktop.app:v6.3.2",
 	"resources": [
 		{
@@ -23,7 +23,7 @@
 			},
 			"isPrivate": false,
 			"metaSortKey": 1550258102232,
-			"modified": 1550965324144,
+			"modified": 1550978993201,
 			"name": "New Environment",
 			"parentId": "wrk_2d31ad3f7d44430694a0e95f3b1abf5e",
 			"_type": "environment"
@@ -441,7 +441,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1550258109477,
 			"method": "GET",
-			"modified": 1550968594760,
+			"modified": 1550978249086,
 			"name": "Get User by Username",
 			"parameters": [],
 			"parentId": "fld_661f3d9fdcec4a1fa985b695a96f928c",
@@ -451,7 +451,41 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{ base_url  }}/users/renatinho",
+			"url": "{{ base_url  }}/users/teste",
+			"_type": "request"
+		},
+		{
+			"_id": "req_7ee69914718d45ea929790f991ae0256",
+			"authentication": {},
+			"body": {},
+			"created": 1550978915907,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_169f37afaccd4cc4bbfdc58c30c49043",
+					"name": "username",
+					"value": "renatinho"
+				},
+				{
+					"id": "pair_ad5d13cfbba14864aebb0d15514d5817",
+					"name": "password",
+					"value": "12345678"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1550978915907,
+			"method": "GET",
+			"modified": 1550979282805,
+			"name": "Check User",
+			"parameters": [],
+			"parentId": "fld_661f3d9fdcec4a1fa985b695a96f928c",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ base_url  }}/users/util/check",
 			"_type": "request"
 		}
 	]

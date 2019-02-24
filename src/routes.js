@@ -14,6 +14,7 @@ const userController = require('./controllers/userController');
 routes.get('/users', userController.index);
 routes.get('/users/id/:id', userController.get);
 routes.get('/users/:username', userController.getByUsername);
+routes.get('/users/util/check', userController.check)
 routes.post('/users', userController.add);
 routes.put('/users', userController.upd);
 routes.delete('/users', userController.del);
