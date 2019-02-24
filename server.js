@@ -11,6 +11,7 @@ if(isDev) mongodbAddress = 'mongodb://localhost:27017/afazer';
 //DB config
 mongoose.connect(mongodbAddress, { useNewUrlParser: true });
 require('./src/models/Item');
+require('./src/models/User');
 
 //Server config
 app.use(express.json());

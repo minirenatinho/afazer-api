@@ -9,4 +9,13 @@ routes.post('/items', itemController.add);
 routes.put('/items/:id', itemController.upd);
 routes.delete('/items/:id', itemController.del);
 
+const userController = require('./controllers/userController');
+
+routes.get('/users', userController.index);
+routes.get('/users/id/:id', userController.get);
+routes.get('/users/:username', userController.getByUsername);
+routes.post('/users', userController.add);
+routes.put('/users/:id', userController.upd);
+routes.delete('/users/:id', userController.del);
+
 module.exports = routes;
