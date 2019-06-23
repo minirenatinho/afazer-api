@@ -5,8 +5,8 @@ TODOs app API
 Install dependencies
 ```sh
 > npm install
+> npm install -g nodemon
 ```
-Start server
+Start dev (local) server
 ```sh
-> cd src
-> node server
+> npm run dev
