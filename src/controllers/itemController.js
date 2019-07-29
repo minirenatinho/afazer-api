@@ -11,17 +11,17 @@ module.exports = {
         let result = {};
         let statusCode = 500;
         const { id, token } = req.headers;
-        const { email, title, description } = req.body;
+        const { title, description } = req.body;
 
         try{
             if(await checkAccess(id, token)){
-                const itemExist = await Item.findOne({ email, title, isActive: true });
+                const itemExist = await Item.findOne({ title, isActive: true });
 
                 if(!itemExist){
-                    const userExist = await User.findOne({ email, isActive: true });
+                    const user = await User.findOne({ _id: id, isActive: true });
 
-                    if(userExist){
-                        const item = await Item.create({ email, title, description });
+                    if(user){
+                        const item = await Item.create({ email: user.email, title, description });
 
                         result = item;
 
