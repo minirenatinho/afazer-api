@@ -1,12 +1,11 @@
 # afazer-api
-TODOs app API
+Afazer TODOs app API
 
 # Running
 Install dependencies
 ```sh
-> npm install
-> npm install -g nodemon
+> npm i
 ```
-Start dev (local) server
+Start (local) development server
 ```sh
 > npm run dev
