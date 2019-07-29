@@ -1,22 +1,24 @@
 const express = require('express');
 const routes = express.Router();
 
+const authController = require('./controllers/authController');
+
+routes.get('/auth', authController.genAccess);
+
 const itemController = require('./controllers/itemController');
 
-routes.get('/items', itemController.index);
-routes.get('/items/:id', itemController.get);
 routes.post('/items', itemController.add);
-routes.put('/items/:id', itemController.upd);
-routes.delete('/items/:id', itemController.del);
+routes.get('/items', itemController.index);
+routes.get('/items/:targetId', itemController.getById);
+routes.patch('/items/:targetId', itemController.update);
+routes.delete('/items/:targetId', itemController.delete);
 
 const userController = require('./controllers/userController');
 
-routes.get('/users', userController.index);
-routes.get('/users/id/:id', userController.get);
-routes.get('/users/:username', userController.getByUsername);
-routes.get('/users/util/check', userController.check)
 routes.post('/users', userController.add);
-routes.put('/users', userController.upd);
-routes.delete('/users', userController.del);
+routes.get('/users', userController.index);
+routes.get('/users/:targetId', userController.getById);
+routes.patch('/users/:targetId', userController.update);
+routes.delete('/users/:targetId', userController.delete);
 
 module.exports = routes;

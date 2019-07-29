@@ -1,86 +1,200 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
+const bcrypt = require('bcryptjs');
+
+const checkAccess = require('./authController').checkAccess;
 
 module.exports = {
-    async index(req, res){
-        const users = await User.find({});
-        users.map(value => {
-            value.password = undefined;
-            return value;
-        });
-
-        return res.json(users);
-    },
-
-    async get(req, res){
-        const user = await User.findById(req.params.id);
-        user.password = undefined;
-
-        return res.json(user);
-    },
-
-    async getByUsername(req, res){
-        const user = await User.findOne({ username: req.params.username });
-        user.password = undefined;
-
-        return res.json(user);
-    },
-
-    async check(req, res){
-        const { username, password } = req.headers;
-        const user = await User.findOne({ username });
-
-        if(user && user.password === password){
-            return res.json({ authorized: true });
-        }
-        else {
-            return res.json({ authorized: false });
-        }
-    },
 
     async add(req, res){
-        try{
-            const user = await User.create(req.body);
+        let messages = [];
+        let result = {};
+        let statusCode = 500;
+        const { email, password } = req.body;
 
-            return res.json(user);
+        try{
+            const userExist = await User.findOne({ email, isActive: true });
+
+            if(!userExist){
+                const user = await User.create({ email, password: bcrypt.hashSync(password) });
+
+                user.password = undefined;
+                result = user;
+
+                statusCode = 200;
+                messages.push('User successfully created.');
+            } else {
+                statusCode = 409;
+                messages.push('User already exists.');
+            }
+
+            return res.status(statusCode).json({ result, messages });
+        } catch (err) {
+            return res.status(statusCode).json({ result: err, messages });
+        }
+    },
+    
+    async index(req, res){
+        let messages = [];
+        let result = {};
+        let statusCode = 500;
+        const { id, token } = req.headers;
+
+        try{
+            if(await checkAccess(id, token)){
+                const users = await User.find({ isActive: true });
+            
+                messages.push(`${users.length} results`);
+
+                users.map(user => {
+                    user.password = undefined;
+                    user.token = undefined;
+                    return user;
+                });
+
+                result = users;
+
+                statusCode = 200;
+                messages.push('Success.');
+            } else {
+                statusCode = 401;
+                messages.push('Unauthorized.');
+            }
+
+            return res.status(statusCode).json({ result, messages });
         } catch(err){
-            return res.json(err);
+            return res.status(statusCode).json({ result: err, messages });
         }
     },
 
-    async upd(req, res){
+    async getById(req, res){
+        let messages = [];
+        let result = {};
+        let statusCode = 500;
+        const { id, token } = req.headers;
+        const { targetId } = req.params;
+
         try{
-            const { username, password } = req.headers;
-            const user = await User.findOne({ username });
+            if(await checkAccess(id, token)){
+                const user = await User.findOne({ _id: targetId, isActive: true });
+                
+                if(user){
+                    user.password = undefined;
+                    user.token = undefined;
+                    
+                    result = user;
 
-            if(user && user.password === password){
-                const upUser = await User.findByIdAndUpdate(user.id, req.body);
+                    statusCode = 200;
+                    messages.push('Success.');
+                } else {
+                    statusCode = 404;
+                    messages.push('User not found.');
+                }
+            } else {
+                statusCode = 401;
+                messages.push('Unauthorized.');
+            }
 
-                return res.json(upUser);
-            }
-            else {
-                return res.json({ message: 'Wrong username or password.' });
-            }
+            return res.status(statusCode).json({ result, messages });
         } catch(err){
-            return res.json(err);
+            return res.status(statusCode).json({ result: err, messages });
         }
     },
 
-    async del(req, res){
+    async update(req, res){
+        let messages = [];
+        let result = {};
+        let statusCode = 500;
+        const { id, token } = req.headers;
+        const { targetId } = req.params;
+        const { email, password } = req.body;
+
         try{
-            const { username, password } = req.headers;
-            const user = await User.findOne({ username });
+            if(await checkAccess(id, token)){
+                const user = await User.findOne({ _id: targetId, isActive: true });
+                
+                if(user){
+                    if(password){
+                        user.password = bcrypt.hashSync(password);
 
-            if(user && user.password === password){
-                const upUser = await User.findByIdAndRemove(user.id);
+                        statusCode = 200;
+                        messages.push('Password successfully updated.');
+                    }
+                    if(email){
+                        const userExist = await User.findOne({ email, isActive: true });
 
-                return res.json(upUser);
+                        if(!userExist){
+                            user.email = email;
+
+                            statusCode = 200;
+                            messages.push('E-mail successfully updated.');
+                        }
+                        else {
+                            statusCode = 409;
+                            messages.push('E-mail already exists.');
+                        }
+                    }
+
+                    await user.save();
+
+                    user.password = undefined;
+                    user.token = undefined;
+                    
+                    result = user;
+
+                    statusCode = 200;
+                    messages.push('Success.');
+                } else {
+                    statusCode = 404;
+                    messages.push('User not found.');
+                }
+            } else {
+                statusCode = 401;
+                messages.push('Unauthorized.');
             }
-            else {
-                return res.json({ message: 'Wrong username or password.' });
-            }
+
+            return res.status(statusCode).json({ result, messages });
         } catch(err){
-            return res.json(err);
+            return res.status(statusCode).json({ result: err, messages });
+        }
+    },
+
+    async delete(req, res){
+        let messages = [];
+        let result = {};
+        let statusCode = 500;
+        const { id, token } = req.headers;
+        const { targetId } = req.params;
+
+        try{
+            if(await checkAccess(id, token)){
+                const user = await User.findOne({ _id: targetId, isActive: true });
+                
+                if(user){
+                    user.isActive = false;
+
+                    await user.save();
+
+                    user.password = undefined;
+                    user.token = undefined;
+                    
+                    result = user;
+
+                    statusCode = 200;
+                    messages.push('Success.');
+                } else {
+                    statusCode = 404;
+                    messages.push('User not found.');
+                }
+            } else {
+                statusCode = 401;
+                messages.push('Unauthorized.');
+            }
+
+            return res.status(statusCode).json({ result, messages });
+        } catch(err){
+            return res.status(statusCode).json({ result: err, messages });
         }
     }
+
 }
