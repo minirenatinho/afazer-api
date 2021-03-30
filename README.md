@@ -1,8 +1,8 @@
 # afazer-api
 Afazer TODOs app API
 
-# before install
-Make sure MongoDB is installed and started
+# Before install
+Make sure [MongoDB](https://docs.mongodb.com/manual/installation/) is installed and started
 
 # Running
 Install dependencies
