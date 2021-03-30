@@ -7,7 +7,7 @@ let config;
 if(process.argv.includes('dev')) config = require('./config').dev;
 else config = require('./config').prod;
 
-mongoose.connect(config.mongodbAddress, { useNewUrlParser: true, useCreateIndex: true }).then(() => {
+mongoose.connect(config.mongodbAddress, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }).then(() => {
 
     //Start models
     require('./models/Item');
