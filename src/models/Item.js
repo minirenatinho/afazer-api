@@ -5,6 +5,7 @@ const itemSchema = new mongoose.Schema({
     email: { type: String, required: true },
     title: { type: String, required: true },
     description: { type: String },
+    context: { type: String },
     isActive: { type: Boolean, default: true }
 }, { timestamps: true });
 

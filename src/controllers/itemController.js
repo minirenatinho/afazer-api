@@ -11,7 +11,7 @@ module.exports = {
         let result = {};
         let statusCode = 500;
         const { id, token } = req.headers;
-        const { title, description } = req.body;
+        const { title, description, context } = req.body;
 
         try{
             if(await checkAccess(id, token)){
@@ -21,7 +21,7 @@ module.exports = {
                     const user = await User.findOne({ _id: id, isActive: true });
 
                     if(user){
-                        const item = await Item.create({ email: user.email, title, description });
+                        const item = await Item.create({ email: user.email, title, description, context });
 
                         result = item;
 
@@ -111,7 +111,7 @@ module.exports = {
         let statusCode = 500;
         const { id, token } = req.headers;
         const { targetId } = req.params;
-        const { email, title, description } = req.body;
+        const { email, title, description, context } = req.body;
 
         try{
             if(await checkAccess(id, token)){
@@ -143,6 +143,12 @@ module.exports = {
 
                         statusCode = 200;
                         messages.push('Description successfully updated.');
+                    }
+                    if(context){
+                        item.context = context;
+
+                        statusCode = 200;
+                        messages.push('Context successfully updated.');
                     }
 
                     await item.save();
