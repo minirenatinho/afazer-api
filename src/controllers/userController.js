@@ -107,7 +107,7 @@ module.exports = {
         let statusCode = 500;
         const { id, token } = req.headers;
         const { targetId } = req.params;
-        const { email, password } = req.body;
+        const { email, password, contextColorMap } = req.body;
 
         try{
             if(await checkAccess(id, token)){
@@ -119,6 +119,12 @@ module.exports = {
 
                         statusCode = 200;
                         messages.push('Password successfully updated.');
+                    }
+                    if(contextColorMap){
+                        user.contextColorMap = contextColorMap;
+
+                        statusCode = 200;
+                        messages.push('ContextColorMap successfully updated.');
                     }
                     if(email){
                         const userExist = await User.findOne({ email, isActive: true });
