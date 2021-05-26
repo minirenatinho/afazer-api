@@ -6,7 +6,7 @@ module.exports = {
     },
     prod: {
         mode: 'PRODUCTION',
-        mongodbAddress: 'mongodb://afazeradmin:afazeradmin0@ds251598.mlab.com:51598/afazer',
+        mongodbAddress: 'mongodb+srv://user_0:PhmHciCE7wrYV2i@cluster0.jy8q2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
         port: process.env.PORT || 3000
     }
 }
