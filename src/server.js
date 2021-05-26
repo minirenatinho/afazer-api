@@ -18,6 +18,6 @@ mongoose.connect(config.mongodbAddress, { useNewUrlParser: true, useCreateIndex:
     app.use(cors());
     app.use('/api', require('./routes'));
 
-    app.listen(config.port, () => console.log(` MODE: ${config.mode}\n DB_ADDRESS: ${config.mongodbAddress}\n APP_PORT: ${config.port}`));
+    app.listen(process.env.PORT || config.port, () => console.log(` MODE: ${config.mode}\n DB_ADDRESS: ${config.mongodbAddress}\n APP_PORT: ${process.env.PORT || config.port}`));
 
 }).catch(err => console.error(err));

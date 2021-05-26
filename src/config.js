@@ -2,7 +2,7 @@ module.exports = {
     dev: {
         mode: 'DEVELOPMENT',
         mongodbAddress: 'mongodb://localhost:27017/afazer',
-        port: 3000
+        port: process.env.PORT || 3000
     },
     prod: {
         mode: 'PRODUCTION',
